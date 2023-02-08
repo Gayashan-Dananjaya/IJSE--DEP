@@ -16,9 +16,6 @@ import javafx.scene.text.FontWeight;
 import javafx.stage.Stage;
 import javafx.util.Duration;
 
-import javax.management.DynamicMBean;
-import java.util.Arrays;
-
 public class AppInitializer extends Application {
 
     static int i = 0;
@@ -48,10 +45,10 @@ public class AppInitializer extends Application {
         login.setTextFill(Color.web("darkblue"));
 
         Label username = new Label("Enter username");
-        username.setPadding(new Insets(25,0,0,0));
+        username.setPadding(new Insets(25, 0, 0, 0));
 
         Label invalidPassword = new Label("Invalid Password!, Try Again.");
-        invalidPassword.setPadding(new Insets(0,0,25,0));
+        invalidPassword.setPadding(new Insets(0, 0, 25, 0));
         Font fontInvalid = Font.font("", FontWeight.THIN, 15);
         invalidPassword.setFont(fontInvalid);
         invalidPassword.setTextFill(Color.web("red"));
@@ -116,7 +113,7 @@ public class AppInitializer extends Application {
         stage.show();
         stage.centerOnScreen();
 
-        animateText(lblTxt,array);
+        animateText(lblTxt, array);
         animateGreet(-750, 200, 1.7, lblGreet);
         followCursor(lblTxt, root);
 
@@ -126,11 +123,15 @@ public class AppInitializer extends Application {
         lbl.setLayoutX(-500);
         KeyFrame key1 = new KeyFrame(Duration.millis(500), event -> {
             TranslateTransition transition = new TranslateTransition(Duration.millis(1300), lbl);
-            transition.setFromX((double) min);
-            transition.setToX((double) max);
+            transition.setFromX(min);
+            transition.setToX(max);
             transition.playFromStart();
             lbl.setVisible(true);
         });
+
+//        KeyFrame key1 = new KeyFrame(Duration.millis(500),
+//                new KeyValue(lbl.translateXProperty(),max)
+//        );
 
         KeyFrame key2 = new KeyFrame(Duration.millis(1800), event -> {
             TranslateTransition transition = new TranslateTransition(Duration.millis(700), lbl);
@@ -157,7 +158,7 @@ public class AppInitializer extends Application {
             transition.playFromStart();
         });
 
-        Timeline timeline = new Timeline(key1,key2,key3,key4);
+        Timeline timeline = new Timeline(key1, key2, key3, key4);
         timeline.setCycleCount(1);
         timeline.playFromStart();
     }
@@ -183,19 +184,19 @@ public class AppInitializer extends Application {
 
         for (String str : array) {
             for (char c : str.toCharArray()) {
-                key = new KeyFrame(Duration.seconds(time+=0.25), event -> {
-                    txt = str.substring(0,++j);
+                key = new KeyFrame(Duration.seconds(time += 0.25), event -> {
+                    txt = str.substring(0, ++j);
                     lbl.setText(txt);
                     if (j == str.length()) j = 0;
                 });
                 keyArray = dynamicArray(keyArray, key);
             }
-//            System.out.println("ABCDEFGHIJK");
+            
             for (char d : str.toCharArray()) {
-                key = new KeyFrame(Duration.seconds(time+=0.25), event -> {
-                    txt = str.substring(0, (str.length() -1- k++));
+                key = new KeyFrame(Duration.seconds(time += 0.25), event -> {
+                    txt = str.substring(0, (str.length() - 1 - k++));
                     lbl.setText(txt);
-                    if (k==str.length()) k = 0;
+                    if (k == str.length()) k = 0;
                 });
                 keyArray = dynamicArray(keyArray, key);
             }
@@ -207,9 +208,7 @@ public class AppInitializer extends Application {
 
     public KeyFrame[] dynamicArray(KeyFrame[] array, KeyFrame key) {
         KeyFrame[] newArray = new KeyFrame[array.length + 1];
-        for (int i = 0; i < array.length; i++) {
-            newArray[i] = array[i];
-        }
+        System.arraycopy(array, 0, newArray, 0, array.length);
         newArray[array.length] = key;
         return newArray;
     }
