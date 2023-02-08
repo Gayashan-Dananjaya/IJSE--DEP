@@ -1,5 +1,9 @@
 package lk.ijse.dep10.exercise;
 
+import javafx.animation.Animation;
+import javafx.animation.KeyFrame;
+import javafx.animation.Timeline;
+import javafx.animation.TranslateTransition;
 import javafx.application.Application;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
@@ -7,14 +11,15 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
-import javafx.scene.layout.AnchorPane;
-import javafx.scene.layout.Background;
-import javafx.scene.layout.VBox;
+import javafx.scene.layout.*;
 import javafx.scene.paint.Color;
 import javafx.scene.paint.Paint;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
 import javafx.stage.Stage;
+import javafx.util.Duration;
+
+import java.sql.Time;
 
 public class AppInitializer extends Application {
 
@@ -27,6 +32,144 @@ public class AppInitializer extends Application {
         loginScene(primaryStage);
         primaryStage.show();
         primaryStage.centerOnScreen();
+    }
+
+    private void tempScene(Stage stage) {
+        Label lblGreet = new Label("Welcome to the App.!");
+        Font fontGreet = Font.font("", FontWeight.BOLD, 30);
+//        lblGreet.setBackground(Background.fill(Color.LIGHTBLUE));
+        lblGreet.setAlignment(Pos.CENTER);
+        lblGreet.setFont(fontGreet);
+        lblGreet.setTextFill(Color.GRAY);
+
+        Label lblTxt = new Label("ABCDEF");
+        Font fontTxt = Font.font("", FontWeight.THIN, 17);
+        lblTxt.setAlignment(Pos.CENTER);
+        lblTxt.setFont(fontTxt);
+        lblTxt.setTextFill(Color.BLUE);
+        lblTxt.setVisible(false);
+
+
+
+        AnchorPane root = new AnchorPane(lblGreet,lblTxt);
+        AnchorPane.setLeftAnchor(lblGreet,0.0);
+        AnchorPane.setRightAnchor(lblGreet,0.0);
+        AnchorPane.setTopAnchor(lblGreet,0.0);
+        AnchorPane.setBottomAnchor(lblGreet,0.0);
+
+        Scene scene = new Scene(root);
+        stage.setScene(scene);
+        stage.setWidth(1000);
+        stage.setHeight(1000);
+        stage.show();
+        stage.centerOnScreen();
+
+//        Greet Animation
+        KeyFrame key1 = new KeyFrame(Duration.millis(100), event -> {
+            lblGreet.setTranslateX(-600);
+        });
+        KeyFrame key2 = new KeyFrame(Duration.millis(200), event -> {
+            lblGreet.setTranslateX(-450);
+        });
+        KeyFrame key3 = new KeyFrame(Duration.millis(300), event -> {
+            lblGreet.setTranslateX(-300);
+        });
+        KeyFrame key4 = new KeyFrame(Duration.millis(400), event -> {
+            lblGreet.setTranslateX(-150);
+        });
+        KeyFrame key5 = new KeyFrame(Duration.millis(500), event -> {
+            lblGreet.setTranslateX(0);
+        });
+        KeyFrame key6 = new KeyFrame(Duration.millis(600), event -> {
+            lblGreet.setTranslateX(50);
+        });
+        KeyFrame key7 = new KeyFrame(Duration.millis(700), event -> {
+            lblGreet.setTranslateX(100);
+        });
+        KeyFrame key8 = new KeyFrame(Duration.millis(800), event -> {
+            lblGreet.setTranslateX(50);
+        });
+        KeyFrame key9 = new KeyFrame(Duration.millis(900), event -> {
+            lblGreet.setTranslateX(0);
+        });
+        KeyFrame key10 = new KeyFrame(Duration.millis(1000), event -> {
+            lblGreet.setScaleX(1.2);
+            lblGreet.setScaleY(1.2);
+        });
+        KeyFrame key11 = new KeyFrame(Duration.millis(1100), event -> {
+            lblGreet.setScaleX(1.4);
+            lblGreet.setScaleY(1.4);
+        });
+        KeyFrame key12 = new KeyFrame(Duration.millis(1200), event -> {
+            lblGreet.setScaleX(1.6);
+            lblGreet.setScaleY(1.6);
+        });
+        KeyFrame key13 = new KeyFrame(Duration.millis(1300), event -> {
+            lblGreet.setScaleX(1.4);
+            lblGreet.setScaleY(1.4);
+        });
+        KeyFrame key14 = new KeyFrame(Duration.millis(1400), event -> {
+            lblGreet.setScaleX(1.2);
+            lblGreet.setScaleY(1.2);
+        });
+        KeyFrame key15 = new KeyFrame(Duration.millis(1500), event -> {
+            lblGreet.setScaleX(1.0);
+            lblGreet.setScaleY(1.0);
+        });
+        Timeline timeline = new Timeline(key1,key2,key3,key4,key5,key6,key7,key8,key9,key10,key11,key12,key13,key14,key15);
+        timeline.setCycleCount(1);
+        timeline.playFromStart();
+
+        root.setOnMouseEntered(event -> {
+            lblTxt.setVisible(true);
+        });
+        root.setOnMouseExited(event -> {
+            lblTxt.setVisible(false);
+        });
+        root.setOnMouseMoved(event -> {
+            lblTxt.setLayoutX(event.getX()+15);
+            lblTxt.setLayoutY(event.getY()+15);
+        });
+
+
+
+    }
+
+    private KeyFrame[] getKeyArray(int min, int max, Double scale, Label lbl) {
+        KeyFrame[] array = {};
+        int duration = 0;
+        for (int i = min; i < 0; i++) {
+            KeyFrame key = new KeyFrame(Duration.millis(duration+=20), event -> {
+                lbl.setTranslateX(min);
+            });
+            array = dynamicArray(array, key);
+            System.out.println(duration);
+        }
+        for (int i = 0; i < max; i++) {
+            KeyFrame key = new KeyFrame(Duration.millis(duration+=20), event -> {
+                lbl.setTranslateX(min);
+            });
+            array = dynamicArray(array, key);
+            System.out.println(duration);
+        }
+        for (int i = max; i >= 0; i--) {
+            KeyFrame key = new KeyFrame(Duration.millis(duration+=20), event -> {
+                lbl.setTranslateX(min);
+            });
+            array = dynamicArray(array, key);
+            System.out.println(duration);
+        }
+
+        return array;
+    }
+
+    private KeyFrame[] dynamicArray(KeyFrame[] array, KeyFrame key) {
+        KeyFrame[] newArray = new KeyFrame[array.length + 1];
+        for (int i = 0; i < array.length; i++) {
+            newArray[i] = array[i];
+        }
+        newArray[array.length] = key;
+        return newArray;
     }
 
     private void loginScene(Stage stage) {
@@ -65,7 +208,7 @@ public class AppInitializer extends Application {
 
         btnLogin.setOnAction(event -> {
             if (txt.getText().equals("Admin")) {
-                app(stage);
+                tempScene(stage);
             } else {
                 invalidPassword.setVisible(true);
                 txt.selectAll();

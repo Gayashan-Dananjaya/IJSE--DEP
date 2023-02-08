@@ -99,6 +99,9 @@ public class AppInitializer extends Application {
         root.getColumnConstraints().add(column1);
         root.getColumnConstraints().add(column2);
 
+        root.setBackground(Background.fill(Color.rgb(25,0,200,0.05)));
+        root.setPrefWidth(850);
+
         column2.setMaxWidth(Double.MAX_VALUE);
 
         root.setPadding(new Insets(30));
