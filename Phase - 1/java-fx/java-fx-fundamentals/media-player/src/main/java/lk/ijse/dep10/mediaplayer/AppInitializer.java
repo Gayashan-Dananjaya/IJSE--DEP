@@ -88,21 +88,23 @@ public class AppInitializer extends Application {
             });
             btnOpen.setOnMouseEntered(mouseEvent -> btnOpen.setOpacity(0.7));
             btnOpen.setOnMouseExited(mouseEvent -> btnOpen.setOpacity(1));
+            btnOpen.setOnMousePressed(mouseEvent -> btnOpen.setEffect(new InnerShadow(20,Color.DARKBLUE)));
+            btnOpen.setOnMouseReleased(mouseEvent -> btnOpen.setEffect(null));
 
             imgPlay.setOnMouseEntered(mouseEvent -> {
-                if (isSelected) {
+                if (isSelected && !isPlaying) {
                     imgPlay.setOpacity(0.7);
                     imgPlay.setCursor(Cursor.HAND);
                 }
             });
             imgPlay.setOnMouseExited(mouseEvent -> {
-                if (isSelected) {
+                if (isSelected && !isPlaying) {
                     imgPlay.setOpacity(1);
                 }
             });
             imgPlay.setOnMousePressed(mouseEvent -> {
                 if (isSelected) {
-                    imgPlay.setEffect(new InnerShadow(20, Color.BLACK));
+                    imgPlay.setEffect(new InnerShadow(20, Color.BLUE));
                 }
             });
             imgPlay.setOnMouseReleased(mouseEvent -> {
@@ -140,19 +142,19 @@ public class AppInitializer extends Application {
             });
 
             imgPause.setOnMouseEntered(mouseEvent -> {
-                if (isSelected) {
+                if (isPlaying) {
                     imgPause.setOpacity(0.7);
                     imgPause.setCursor(Cursor.HAND);
                 }
             });
             imgPause.setOnMouseExited(mouseEvent -> {
-                if (isSelected) {
+                if (isPlaying) {
                     imgPause.setOpacity(1);
                 }
             });
             imgPause.setOnMousePressed(mouseEvent -> {
                 if (isSelected) {
-                    imgPause.setEffect(new InnerShadow(20, Color.BLACK));
+                    imgPause.setEffect(new InnerShadow(20, Color.BLUE));
                 }
             });
             imgPause.setOnMouseReleased(mouseEvent -> {
@@ -170,19 +172,19 @@ public class AppInitializer extends Application {
             });
 
             imgStop.setOnMouseEntered(mouseEvent -> {
-                if (isSelected) {
+                if (isPlaying) {
                     imgStop.setOpacity(0.7);
                     imgStop.setCursor(Cursor.HAND);
                 }
             });
             imgStop.setOnMouseExited(mouseEvent -> {
-                if (isSelected) {
+                if (isPlaying) {
                     imgStop.setOpacity(1);
                 }
             });
             imgStop.setOnMousePressed(mouseEvent -> {
                 if (isSelected) {
-                    imgStop.setEffect(new InnerShadow(20, Color.BLACK));
+                    imgStop.setEffect(new InnerShadow(20, Color.BLUE));
                 }
             });
             imgStop.setOnMouseReleased(mouseEvent -> {
@@ -214,7 +216,7 @@ public class AppInitializer extends Application {
             });
             imgRepeat.setOnMousePressed(mouseEvent -> {
                 if (isSelected) {
-                    imgRepeat.setEffect(new InnerShadow(20, Color.BLACK));
+                    imgRepeat.setEffect(new InnerShadow(20, Color.BLUE));
                 }
             });
             imgRepeat.setOnMouseReleased(mouseEvent -> {
@@ -239,7 +241,7 @@ public class AppInitializer extends Application {
             });
             imgVolume.setOnMousePressed(mouseEvent -> {
                 if (isSelected) {
-                    imgVolume.setEffect(new InnerShadow(20, Color.BLACK));
+                    imgVolume.setEffect(new InnerShadow(20, Color.BLUE));
                 }
             });
             imgVolume.setOnMouseReleased(mouseEvent -> {
@@ -258,15 +260,8 @@ public class AppInitializer extends Application {
             });
 
             slider.valueProperty().addListener((observableValue, oldValue, currentValue) -> {
-                mediaPlayer.setVolume(slider.getValue());
+                if (isSelected) mediaPlayer.setVolume(slider.getValue());
             });
-
-
-
-
-
-
-
         }
 
     }
@@ -323,10 +318,10 @@ public class AppInitializer extends Application {
 
 //        RadialGradient gradient = new RadialGradient();
         LinearGradient gradient = new LinearGradient(
-                0,
-                0,
-                1,
-                1,
+                0, //start X
+                0, // start Y
+                1, //end X
+                1, //end Y
                 true,
                 CycleMethod.NO_CYCLE,
                 new Stop(0.1f, Color.LIGHTSKYBLUE),
