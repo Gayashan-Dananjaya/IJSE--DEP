@@ -1,0 +1,82 @@
+/*#btnRemove {*/
+/*    -fx-background-color: rgba(190, 0, 0, 0.87);*/
+/*    -fx-text-fill: white;*/
+/*    -fx-font-weight: 400;*/
+/*    -fx-font-style: italic;*/
+/*    -fx-background-radius: 20px;*/
+
+/*    !*-fx-border-color: black;*!*/
+/*    !*-fx-border-width: 2px;*!*/
+/*    !*-fx-border-radius: 20px;*!*/
+/*    !*-fx-border-style: dotted;*!*/
+/*}*/
+
+/*#btnRemove:hover {*/
+/*    -fx-background-color: green;*/
+/*}*/
+
+/*.label {*/
+/*    !*All the labels are selected here*!*/
+/*    -fx-font-family: Ubuntu;*/
+/*}*/
+
+/*#lstNames {*/
+/*    -fx-font-size: 16px;*/
+/*}*/
+
+/*#btnNew {*/
+/*    -fx-background-color: green;*/
+/*    -fx-text-fill: white;*/
+/*}*/
+
+/*#btnNew:hover {*/
+/*    -fx-background-color: rgba();*/
+/*}*/
+
+
+#lstNames, #lstStudents {
+    -fx-font-size: 16px;
+    -fx-background-radius: 10px;
+}
+
+#btnRemove:hover, #btnDelete:hover {
+    -fx-background-color: rgba(180, 0, 0, 0.7);
+}
+
+#btnRemove, #btnDelete {
+    -fx-background-color: #b40000;
+    -fx-text-fill: white;
+    -fx-background-radius: 10px;
+}
+
+#btnNew {
+    -fx-background-color: green;
+    -fx-text-fill: white;
+    -fx-background-radius: 10px;
+}
+
+#btnNew:hover {
+    -fx-background-color: rgba(0, 128, 0, 0.82);
+}
+
+#btnSave {
+    -fx-background-color: #0078d2;
+    -fx-text-fill: white;
+    -fx-background-radius: 10px;
+}
+
+#btnSave:hover {
+    -fx-background-color: rgba(0, 149, 255, 0.85);
+}
+
+.invalid { /*CSS CLASS (Due to unknown name)*/
+    /*-fx-border-width: 1px;*/
+    /*-fx-border-color: Red;*/
+    /*-fx-border-radius: 10px;*/
+    -fx-text-box-border: red;
+    -fx-focus-color: red;
+}
+
+#txtAddress, #txtId, #txtInput, #txtName {
+    -fx-background-radius: 10px;
+}
