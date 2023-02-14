@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="303.0" prefWidth="536.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.dep10.app.controler.MainFormController">
+   <children>
+      <HBox alignment="CENTER" layoutY="22.0" maxWidth="1.7976931348623157E308" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+         <children>
+            <Label text="Linked List Demos">
+               <font>
+                  <Font size="25.0" />
+               </font>
+            </Label>
+         </children>
+      </HBox>
+      <HBox alignment="CENTER_LEFT" layoutX="68.0" layoutY="86.0" maxWidth="1.7976931348623157E308" spacing="30.0" AnchorPane.leftAnchor="68.0" AnchorPane.rightAnchor="50.0">
+         <children>
+            <Label text="Number :">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Label>
+            <TextField fx:id="txtNumber" maxWidth="1.7976931348623157E308" promptText="Enter a number" HBox.hgrow="ALWAYS" />
+         </children>
+      </HBox>
+      <Button fx:id="btnAdd" defaultButton="true" layoutX="169.0" layoutY="121.0" mnemonicParsing="false" onAction="#btnAddOnAction" prefHeight="24.0" prefWidth="71.0" text="ADD" />
+      <HBox layoutX="113.0" layoutY="186.0" maxWidth="1.7976931348623157E308" spacing="30.0" AnchorPane.leftAnchor="50.0" AnchorPane.rightAnchor="50.0">
+         <children>
+            <Button fx:id="btnPrintAll" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#btnPrintAlOnAction" text="PRINT ALL" HBox.hgrow="ALWAYS" />
+            <Button fx:id="btnPrint" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#btnPrintOnAction" text="PRINT" HBox.hgrow="ALWAYS" />
+            <Button fx:id="btnRemove" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#btnRemoveOnAction" text="REMOVE" HBox.hgrow="ALWAYS" />
+         </children>
+      </HBox>
+      <HBox layoutX="50.0" layoutY="245.0" maxWidth="1.7976931348623157E308" spacing="30.0" AnchorPane.leftAnchor="50.0" AnchorPane.rightAnchor="50.0">
+         <children>
+            <Button fx:id="btnContains" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#btnContainsOnAction" text="CONTAINS" HBox.hgrow="ALWAYS" />
+            <Button fx:id="btnSize" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#btnSizeOnAction" text="SIZE" HBox.hgrow="ALWAYS" />
+            <Button fx:id="btnClear" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#btnClearOnAction" text="CLEAR" HBox.hgrow="ALWAYS" />
+         </children>
+      </HBox>
+   </children>
+</AnchorPane>
