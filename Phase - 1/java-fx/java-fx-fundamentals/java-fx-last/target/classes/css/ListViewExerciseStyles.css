@@ -1,0 +1,54 @@
+.invalid {
+    -fx-text-box-border: red;
+    -fx-focus-color: red;
+}
+
+/*.button {*/
+/*    -fx-background-radius: 10px;*/
+/*    -fx-font-family: Ubuntu;*/
+/*    -fx-font-weight: bold;*/
+/*    -fx-text-fill: white;*/
+/*}*/
+
+/*#btnNewStudent {*/
+/*    -fx-background-color: blue;*/
+/*    -fx-text-fill: white;*/
+/*    -fx-font-size: 16px;*/
+/*    -fx-font-weight: bold;*/
+/*    -fx-background-radius: 20px;*/
+/*}*/
+
+#btnAdd, #btnSave {
+    -fx-background-color: #0067a9;
+    -fx-text-fill: white;
+}
+
+#btnAdd:hover, #btnSave:hover {
+    -fx-background-color: #0067a9;
+    -fx-text-fill: white;
+}
+
+#btnRemove, #btnDelete {
+    -fx-background-color: red;
+}
+
+#btnRemove:hover, #btnDelete:hover {
+    -fx-background-color: rgba(192,0,0,0.82);
+}
+
+.list-view {
+    -fx-font-size: 16px;
+}
+
+.list-cell:hover {
+    -fx-background-color: lightgray;
+}
+
+
+
+/*#btnShiftLeft, #btnShiftRight {*/
+/*    -fx-background-color: #c9c8c8;*/
+/*    -fx-text-fill: black;*/
+/*    -fx-font-size: 17px;*/
+/*    -fx-font-weight: bold;*/
+/*}*/

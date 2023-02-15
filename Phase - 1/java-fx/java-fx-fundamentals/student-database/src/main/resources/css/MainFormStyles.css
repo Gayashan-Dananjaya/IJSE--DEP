@@ -2,3 +2,33 @@
     -fx-text-box-border: red;
     -fx-focus-color: red;
 }
+
+.button {
+    -fx-background-radius: 10px;
+    -fx-font-family: Ubuntu;
+    -fx-font-weight: bold;
+    -fx-text-fill: white;
+}
+
+#btnNewStudent {
+    -fx-background-color: blue;
+    -fx-text-fill: white;
+    -fx-font-size: 16px;
+    -fx-font-weight: bold;
+    -fx-background-radius: 20px;
+}
+
+#btnAdd, #btnSave {
+    -fx-background-color: #049b04;
+}
+
+#btnRemove, #btnDelete {
+    -fx-background-color: red;
+}
+
+#btnShiftLeft, #btnShiftRight {
+    -fx-background-color: #c9c8c8;
+    -fx-text-fill: black;
+    -fx-font-size: 17px;
+    -fx-font-weight: bold;
+}

@@ -4,10 +4,10 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.control.Button;
-import javafx.scene.control.ListView;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import lk.ijse.dep10.student_database.model.Student;
+
+import java.util.Optional;
 
 public class MainFormController {
 
@@ -50,7 +50,7 @@ public class MainFormController {
     private TextField txtStudentName;
     public int id = 1;
     public boolean isSelected = false;
-    String j;
+//    String j;
 
     public void initialize() {
         String idText = String.format("S%03d", id);
@@ -98,21 +98,30 @@ public class MainFormController {
             String name = student.name;
             ObservableList<String> contact = student.contact;
             ObservableList<String> modules = student.modules;
+            ObservableList<String> remainingModules = student.remainingModules;
 
             txtStudentId.setText(id);
             txtStudentName.setText(name);
             lstStudentContact.setItems(contact);
             lstSelectedModules.setItems(modules);
+            lstRemainingModules.setItems(remainingModules);
 
-            ObservableList<String> remainingModules = lstRemainingModules.getItems();
-            remainingModules.clear();
-            remainingModules.addAll("React", "OOP", "DBMS", "PF", "Analysis");
+//            ObservableList<String> remainingModules = lstRemainingModules.getItems();
+//            ObservableList<String> remainingModules = FXCollections.observableArrayList();// lstRemainingModules.getItems();
+//            remainingModules.clear();
+//            remainingModules.addAll("React", "OOP", "DBMS", "PF", "Analysis");
 
-            for (String i : modules) {
-                for () {
-                    if (i.equals(j)) remainingModules.remove(j);
-                }
-            }
+//            for (String i : modules) {
+//                System.out.println("--------------"+i);
+//                for (String j : remainingModules) {
+//                    System.out.println(j);
+//                    if (i.equals(j)){
+//                        remainingModules.remove(j);
+//                        System.out.println("Done");
+//                    }
+//
+//                }
+//            }
 
         });
 
@@ -122,6 +131,12 @@ public class MainFormController {
     @FXML
     void btnDeleteOnAction(ActionEvent event) {
         Student student = lstStudentDetails.getSelectionModel().getSelectedItem();
+
+        Alert alert = new Alert(Alert.AlertType.CONFIRMATION, "Do you want to remove student ID : " + student.id + " Name : " + student.name + "?", ButtonType.NO, ButtonType.YES);
+        Optional<ButtonType> button = alert.showAndWait();
+
+        if (button.isEmpty() || button.get() == ButtonType.NO) return;
+
         lstStudentDetails.getItems().remove(student);
         btnNewStudent.fire();
     }
@@ -139,15 +154,15 @@ public class MainFormController {
         /*new ObservableLists*/
         ObservableList<String> newContact = FXCollections.observableArrayList();
         ObservableList<String> newModules = FXCollections.observableArrayList();
+        ObservableList<String> newRemainingModules = FXCollections.observableArrayList();
 
         /*Assigning those new ObservableLists to istView*/
         lstStudentContact.setItems(newContact);
         lstSelectedModules.setItems(newModules);
+        lstRemainingModules.setItems(newRemainingModules);
 
-//        lstStudentContact.getItems().clear();
-        lstRemainingModules.getItems().clear();
         lstRemainingModules.getItems().addAll("React", "OOP", "DBMS", "PF", "Analysis");
-//        lstSelectedModules.getItems().clear();
+        lstStudentDetails.getSelectionModel().clearSelection();
 
         btnRemove.setDisable(true);
         btnDelete.setDisable(true);
@@ -165,6 +180,7 @@ public class MainFormController {
         String name = txtStudentName.getText();
         ObservableList<String> contact = lstStudentContact.getItems();
         ObservableList<String> modules = lstSelectedModules.getItems();
+        ObservableList<String> remainingModules = lstRemainingModules.getItems();
 
         txtStudentName.getStyleClass().remove("invalid");
         txtStudentContact.getStyleClass().remove("invalid");
@@ -193,7 +209,7 @@ public class MainFormController {
         if (!isValid) return;
 
         if (!isSelected) {
-            Student student = new Student(studentId, name, contact, modules);
+            Student student = new Student(studentId, name, contact, modules, remainingModules);
             lstStudentDetails.getItems().add(student);
             id++;
         } else {
@@ -259,8 +275,19 @@ public class MainFormController {
     }
 
     public void btnRemoveOnAction(ActionEvent actionEvent) {
+        Alert alert = new Alert(Alert.AlertType.CONFIRMATION, "Do you want to remove Contact No : " + lstStudentContact.getSelectionModel().getSelectedItem() + "?", ButtonType.NO, ButtonType.YES);
+        Optional<ButtonType> button = alert.showAndWait();
+
+        if (button.isEmpty() || button.get() == ButtonType.NO) {
+            lstStudentContact.getSelectionModel().clearSelection();
+            txtStudentContact.requestFocus();
+            txtStudentContact.clear();
+            return;
+        }
+
+
         lstStudentContact.getItems().remove(lstStudentContact.getSelectionModel().getSelectedItem());
-        btnRemove.setDisable(true);
+        lstStudentContact.getSelectionModel().clearSelection();
         txtStudentContact.getStyleClass().remove("invalid");
         txtStudentContact.requestFocus();
     }
