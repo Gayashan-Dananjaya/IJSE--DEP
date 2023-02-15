@@ -9,6 +9,9 @@
     -fx-font-weight: bold;
     -fx-text-fill: white;
 }
+#btnForward, #btnBack {
+    -fx-text-fill: black;
+}
 
 #btnNewStudent {
     -fx-background-color: blue;

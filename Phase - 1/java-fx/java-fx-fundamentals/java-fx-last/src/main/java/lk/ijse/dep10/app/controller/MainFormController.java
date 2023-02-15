@@ -75,7 +75,7 @@ public class MainFormController {
         stage.initOwner(btnListView.getScene().getWindow());
         stage.show();
         stage.setMaximized(true);
-        stage.setResizable(false);
+//        stage.setResizable(false);
         stage.centerOnScreen();
     }
 }

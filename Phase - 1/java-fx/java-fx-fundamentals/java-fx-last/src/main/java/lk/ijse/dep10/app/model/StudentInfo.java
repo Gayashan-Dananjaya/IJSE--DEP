@@ -18,4 +18,9 @@ public class StudentInfo {
         this.contacts = contacts;
         this.modules = modules;
     }
+
+    @Override
+    public String toString() {
+        return String.format("%-4s\t%-25s\t%-5s\t%s", id, name, gender.name(), contacts);
+    }
 }

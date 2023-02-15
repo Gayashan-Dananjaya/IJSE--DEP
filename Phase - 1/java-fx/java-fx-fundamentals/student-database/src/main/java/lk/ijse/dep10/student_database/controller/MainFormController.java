@@ -107,19 +107,16 @@ public class MainFormController {
             lstRemainingModules.setItems(remainingModules);
 
 //            ObservableList<String> remainingModules = lstRemainingModules.getItems();
-//            ObservableList<String> remainingModules = FXCollections.observableArrayList();// lstRemainingModules.getItems();
+//            ObservableList<String> remainingModules = FXCollections.observableArrayList();
 //            remainingModules.clear();
 //            remainingModules.addAll("React", "OOP", "DBMS", "PF", "Analysis");
 
 //            for (String i : modules) {
-//                System.out.println("--------------"+i);
 //                for (String j : remainingModules) {
-//                    System.out.println(j);
 //                    if (i.equals(j)){
 //                        remainingModules.remove(j);
-//                        System.out.println("Done");
+//                        System.out.println();
 //                    }
-//
 //                }
 //            }
 

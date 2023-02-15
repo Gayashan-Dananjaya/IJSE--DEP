@@ -29,13 +29,13 @@
         </HBox>
       <HBox layoutX="40.0" layoutY="151.0" spacing="70.0" AnchorPane.leftAnchor="40.0">
          <children>
-            <Label text="Gender" />
-            <RadioButton disable="true" mnemonicParsing="false" text="Male">
+            <Label fx:id="lblGender" text="Gender" />
+            <RadioButton fx:id="rdoMale" disable="true" mnemonicParsing="false" text="Male">
                <toggleGroup>
                   <ToggleGroup fx:id="Gender" />
                </toggleGroup>
             </RadioButton>
-            <RadioButton disable="true" mnemonicParsing="false" text="Female" toggleGroup="$Gender" />
+            <RadioButton fx:id="rdoFemale" disable="true" mnemonicParsing="false" text="Female" toggleGroup="$Gender" />
          </children>
       </HBox>
         <HBox layoutX="40.0" layoutY="191.0" prefHeight="125.0" prefWidth="520.0" spacing="10.0" AnchorPane.leftAnchor="40.0" AnchorPane.rightAnchor="40.0">
@@ -75,7 +75,7 @@
                 <ListView fx:id="lstSelectedModules" layoutX="46.0" layoutY="10.0" maxWidth="1.7976931348623157E308" onKeyReleased="#lstSelectedModulesOnKeyReleased" HBox.hgrow="ALWAYS" />
             </children>
         </HBox>
-        <Separator layoutX="184.0" layoutY="450.0" prefWidth="200.0" AnchorPane.leftAnchor="40.0" AnchorPane.rightAnchor="40.0" />
+        <Separator layoutX="40.0" layoutY="501.0" prefWidth="200.0" AnchorPane.leftAnchor="40.0" AnchorPane.rightAnchor="40.0" />
         <HBox layoutX="40.0" layoutY="522.0" maxWidth="1.7976931348623157E308" spacing="120.0" AnchorPane.leftAnchor="40.0" AnchorPane.rightAnchor="40.0">
             <children>
                 <Button fx:id="btnSave" disable="true" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#btnSaveOnAction" text="Save" HBox.hgrow="ALWAYS" />
