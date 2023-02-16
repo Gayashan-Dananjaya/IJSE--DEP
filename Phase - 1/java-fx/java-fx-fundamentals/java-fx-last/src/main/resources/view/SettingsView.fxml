@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+
+<AnchorPane prefHeight="140.0" prefWidth="501.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.dep10.app.controller.SettingsViewControler">
+   <children>
+      <VBox alignment="TOP_CENTER" maxWidth="1.7976931348623157E308" prefHeight="115.0" prefWidth="421.0" spacing="20.0" AnchorPane.bottomAnchor="417.0" AnchorPane.leftAnchor="40.0" AnchorPane.rightAnchor="40.0" AnchorPane.topAnchor="40.0">
+         <children>
+            <Label text="App Settings">
+               <font>
+                  <Font name="System Bold Italic" size="20.0" />
+               </font>
+            </Label>
+            <Label fx:id="lblTitle" text="App Title" />
+            <TextField fx:id="txt" onAction="#txtOnAction" />
+         </children>
+      </VBox>
+      <StackPane layoutX="40.0" layoutY="155.0" prefHeight="35.0" prefWidth="421.0">
+         <children>
+            <Button fx:id="btnApply" mnemonicParsing="false" onAction="#btnApplyOnAction" text="Appy New Settings" />
+         </children>
+      </StackPane>
+   </children>
+</AnchorPane>

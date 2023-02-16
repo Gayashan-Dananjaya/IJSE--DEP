@@ -11,7 +11,7 @@
    <children>
       <HBox alignment="CENTER" layoutY="40.0" maxWidth="1.7976931348623157E308" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
          <children>
-            <Label alignment="CENTER" contentDisplay="CENTER" maxWidth="1.7976931348623157E308" text="Java FX Final App" HBox.hgrow="ALWAYS">
+            <Label fx:id="lblTitle" alignment="CENTER" contentDisplay="CENTER" maxWidth="1.7976931348623157E308" text="Java FX Final App" HBox.hgrow="ALWAYS">
                <font>
                   <Font name="System Bold" size="28.0" />
                </font>
@@ -59,7 +59,7 @@
             <Insets left="30.0" right="30.0" />
          </padding>
       </HBox>
-      <Button fx:id="btnSceneSceneCommunication" layoutX="28.0" layoutY="268.0" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#btnSceneSceneCommunicationOnAction" prefHeight="36.0" prefWidth="375.0" text="Scene - Scene Communication">
+      <Button fx:id="btnSceneSceneCommunication" layoutX="28.0" layoutY="268.0" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#btnSceneSceneCommunicationOnAction" prefHeight="36.0" prefWidth="375.0" text="App Settings">
          <font>
             <Font name="System Italic" size="19.0" />
          </font>
