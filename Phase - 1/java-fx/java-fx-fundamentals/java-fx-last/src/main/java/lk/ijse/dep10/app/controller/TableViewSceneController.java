@@ -135,8 +135,6 @@ public class TableViewSceneController {
             System.out.println(selectedEmployee.getId());
             tblEmployees.refresh();
         }
-
-
     }
 
 }

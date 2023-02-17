@@ -4,6 +4,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.paint.Color;
 import lk.ijse.dep10.app.model.Student;
@@ -190,7 +191,6 @@ public class MainFormController {
             chkPartTime.setSelected(student.isPartTime());
 
         });
-
     }
 
     @FXML
@@ -308,7 +308,6 @@ public class MainFormController {
 
 
         String generatedId = idGenerate(cmbDegree.getSelectionModel().getSelectedIndex());
-        System.out.println(generatedId);
 
         if (tblStudent.getSelectionModel().isEmpty()) {
             Student student = new Student(
@@ -328,7 +327,13 @@ public class MainFormController {
             student.setName(txtName.getText());
             student.setGender((rdoMale.isSelected()) ? Gender.MALE : Gender.FEMALE);
             student.setContact(new ArrayList<String>(lstContact.getItems()));
+
+            if (!(cmbDegree.getSelectionModel().getSelectedItem().equals(student.getDegree()))) {
+                student.setId(idGenerate(cmbDegree.getSelectionModel().getSelectedIndex()));
+            }
+
             student.setDegree(cmbDegree.getSelectionModel().getSelectedItem());
+
             student.setModules(new ArrayList<String>(lstSelectedModule.getItems()));
             student.setPartTime(chkPartTime.isSelected());
             btnNewStudent.fire();
@@ -340,16 +345,22 @@ public class MainFormController {
 
     @FXML
     void txtContactOnAction(ActionEvent event) {
-
+        btnAdd.fire();
     }
 
-    public void txtContactOnKeyReleased(KeyEvent keyEvent) {
+    public void lstContactOnKeyReleased(KeyEvent keyEvent) {
+        if (lstContact.getSelectionModel().getSelectedItems() == null) return;
+        if (keyEvent.getCode() == KeyCode.DELETE) btnRemove.fire();
     }
 
     public void lstModuleOnKeyReleased(KeyEvent keyEvent) {
+        if (lstModule.getSelectionModel().isEmpty()) return;
+        if (keyEvent.getCode() == KeyCode.ENTER) btnForward.fire();
     }
 
     public void lstSelectedModuleOnKeyReleased(KeyEvent keyEvent) {
+        if (lstSelectedModule.getSelectionModel().isEmpty()) return;
+        if (keyEvent.getCode() == KeyCode.DELETE) btnBack.fire();
     }
 
     public void tblStudentOnKeyReleased(KeyEvent keyEvent) {
