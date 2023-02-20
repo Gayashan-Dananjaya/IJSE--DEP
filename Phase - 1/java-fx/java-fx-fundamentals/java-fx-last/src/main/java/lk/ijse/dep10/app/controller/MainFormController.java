@@ -77,10 +77,10 @@ public class MainFormController {
         FXMLLoader fxmlLoader = new FXMLLoader(url);
         AnchorPane root = fxmlLoader.load();
 
-        SimpleStringProperty observable = new SimpleStringProperty(lblTitle.getText());
-        lblTitle.textProperty().bind(observable);
+        SimpleStringProperty observable2 = new SimpleStringProperty(lblTitle.getText());
+        lblTitle.textProperty().bind(observable2);
         SettingsViewControler ctrl = fxmlLoader.getController();
-        ctrl.initData(observable);
+        ctrl.initData(observable2);
 
         stage.setScene(new Scene(root));
         stage.setTitle("Settings Demo");
