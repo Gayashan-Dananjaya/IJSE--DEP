@@ -1,0 +1,13 @@
+.button {
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+    -fx-font-family: Ubuntu;
+}
+
+#btnBack, #btnForward {
+    -fx-background-color: darkgray;
+}
+
+.invalid {
+    -fx-border-color: red !important;
+}

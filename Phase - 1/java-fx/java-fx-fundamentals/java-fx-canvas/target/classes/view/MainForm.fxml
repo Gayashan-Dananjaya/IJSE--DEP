@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.canvas.Canvas?>
+<?import javafx.scene.control.ColorPicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ToolBar?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.paint.Color?>
+
+
+<AnchorPane prefHeight="578.0" prefWidth="856.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.dep10.app.controller.MainFormController">
+   <children>
+      <Canvas fx:id="cnvMain" height="637.0" layoutX="-50.0" layoutY="-60.0" onMouseDragged="#cvnMainOnMouseDragged" onMousePressed="#cvnMainOnMousePressed" onMouseReleased="#cvnMainOnMouseReleased" width="906.0" AnchorPane.bottomAnchor="1.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+      <ToolBar layoutY="-26.0" prefHeight="46.0" prefWidth="906.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+        <items>
+            <Label alignment="TOP_LEFT" text="Stroke" />
+            <ColorPicker fx:id="clrStroke" onAction="#clrStrokeOnAction">
+               <value>
+                  <Color />
+               </value>
+            </ColorPicker>
+            <Label layoutX="10.0" layoutY="316.0" text="Fill" />
+            <ColorPicker fx:id="clrFill" onAction="#clrFillOnAction" />
+        </items>
+      </ToolBar>
+   </children>
+</AnchorPane>

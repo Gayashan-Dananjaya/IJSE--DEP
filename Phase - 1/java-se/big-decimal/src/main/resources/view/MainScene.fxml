@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+
+<AnchorPane prefHeight="701.0" prefWidth="1288.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.dep10.se.controller.MainSceneController">
+   <children>
+      <VBox layoutX="40.0" layoutY="14.0" prefHeight="200.0" prefWidth="100.0" spacing="15.0" AnchorPane.bottomAnchor="40.0" AnchorPane.leftAnchor="40.0" AnchorPane.rightAnchor="40.0" AnchorPane.topAnchor="40.0">
+         <children>
+            <Button fx:id="btnNew" mnemonicParsing="false" onAction="#btnNewOnAction" text="+ NEW ITEM" />
+            <HBox alignment="CENTER" spacing="15.0">
+               <children>
+                  <Label fx:id="lblCode" alignment="CENTER_RIGHT" minWidth="90.0" text="Code" />
+                  <TextField fx:id="txtCode" editable="false" maxWidth="1.7976931348623157E308" HBox.hgrow="ALWAYS" />
+               </children>
+            </HBox>
+            <HBox alignment="CENTER" layoutX="10.0" layoutY="10.0" spacing="15.0">
+               <children>
+                  <Label fx:id="lblCode1" alignment="CENTER_RIGHT" minWidth="90.0" text="Description" />
+                  <TextField fx:id="txtDescription" maxWidth="1.7976931348623157E308" HBox.hgrow="ALWAYS" />
+               </children>
+            </HBox>
+            <HBox alignment="CENTER" layoutX="10.0" layoutY="49.0" spacing="15.0">
+               <children>
+                  <Label fx:id="lblCode11" alignment="CENTER_RIGHT" minWidth="90.0" text="Buying Price" />
+                  <TextField fx:id="txtBuyingPrice" maxWidth="1.7976931348623157E308" HBox.hgrow="ALWAYS" />
+               </children>
+            </HBox>
+            <HBox alignment="CENTER" layoutX="10.0" layoutY="88.0" spacing="15.0">
+               <children>
+                  <Label fx:id="lblCode111" alignment="CENTER_RIGHT" minWidth="90.0" text="Selling Price" />
+                  <TextField fx:id="txtSellingPrice" maxWidth="1.7976931348623157E308" HBox.hgrow="ALWAYS" />
+               </children>
+            </HBox>
+            <HBox alignment="CENTER" layoutX="10.0" layoutY="127.0" spacing="15.0">
+               <children>
+                  <Label fx:id="lblCode1111" alignment="CENTER_RIGHT" minWidth="90.0" text="QTY." />
+                  <TextField fx:id="txtQuantity" maxWidth="1.7976931348623157E308" HBox.hgrow="ALWAYS" />
+               </children>
+            </HBox>
+            <HBox alignment="CENTER_LEFT" spacing="15.0">
+               <children>
+                  <Button fx:id="btnSave" mnemonicParsing="false" onAction="#btnSaveOnAction" text="Save" />
+                  <Label fx:id="lblTotal" alignment="TOP_RIGHT" maxWidth="1.7976931348623157E308" text="Est. Total Profit: 0.00" HBox.hgrow="ALWAYS">
+                     <font>
+                        <Font name="System Bold Italic" size="13.0" />
+                     </font>
+                  </Label>
+               </children>
+            </HBox>
+            <TableView fx:id="tblItems" prefHeight="200.0" prefWidth="200.0" VBox.vgrow="ALWAYS">
+              <columns>
+                <TableColumn prefWidth="75.0" text="Code" />
+                <TableColumn prefWidth="197.0" text="Description" />
+                  <TableColumn prefWidth="141.0" text="Buying" />
+                  <TableColumn prefWidth="170.0" text="Selling" />
+                  <TableColumn prefWidth="185.0" text="Profit" />
+                  <TableColumn prefWidth="87.0" text="Quantity" />
+                  <TableColumn prefWidth="154.0" text="Total" />
+                  <TableColumn prefWidth="198.0" text="Est. Total Profit" />
+              </columns>
+            </TableView>
+         </children>
+      </VBox>
+   </children>
+</AnchorPane>
