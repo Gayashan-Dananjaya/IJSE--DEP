@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ProgressBar?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+
+
+<AnchorPane prefHeight="565.0" prefWidth="594.0" stylesheets="@../css/MainSceneStyles.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.dep10.app.controller.MainSceneController">
+   <children>
+      <Button fx:id="btnReset" layoutX="38.0" layoutY="29.0" mnemonicParsing="false" onAction="#btnResetOnAction" text="Reset" />
+      <Button fx:id="btnSelectFile" layoutX="38.0" layoutY="84.0" mnemonicParsing="false" onAction="#btnSelectFileOnAction" text="Select File" />
+      <HBox alignment="CENTER" layoutX="189.0" layoutY="122.0" maxWidth="1.7976931348623157E308" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+         <children>
+            <Label fx:id="lblFile" text="No file has been selected yet" />
+         </children>
+      </HBox>
+      <Button fx:id="btnSelectDirectory" disable="true" layoutX="38.0" layoutY="191.0" mnemonicParsing="false" onAction="#btnSelectDirectoryOnAction" text="Select Directory" />
+      <HBox alignment="CENTER" layoutX="197.0" layoutY="233.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+         <children>
+            <Label fx:id="lblDirectory" text="No directory has been selected yet" />
+         </children>
+      </HBox>
+      <Button fx:id="btnCopy" defaultButton="true" disable="true" layoutX="243.0" layoutY="283.0" mnemonicParsing="false" onAction="#btnCopyOnAction" prefWidth="100.0" style="-fx-background-color: green; -fx-background-radius: 20px;" text="Copy" />
+      <ProgressBar fx:id="prg" layoutX="243.0" layoutY="358.0" maxWidth="1.7976931348623157E308" progress="0.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" />
+      <HBox alignment="CENTER" layoutX="182.0" layoutY="386.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+         <children>
+            <Label fx:id="lblPercentage" text="0%" />
+         </children>
+      </HBox>
+      <Separator layoutX="193.0" layoutY="338.0" prefWidth="200.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" />
+   </children>
+</AnchorPane>
