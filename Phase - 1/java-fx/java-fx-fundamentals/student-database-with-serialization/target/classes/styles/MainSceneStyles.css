@@ -1,0 +1,22 @@
+.button, .text-field {
+    -fx-border-radius: 20px;
+    -fx-background-radius: 20px;
+}
+
+#btnNewStudent {
+    -fx-font-weight: bold;
+    -fx-text-fill: white;
+    -fx-background-color: #1d7be7;
+}
+
+#btnSave {
+    -fx-font-weight: bold;
+    -fx-text-fill: white;
+    -fx-background-color: green;
+}
+
+#btnDelete {
+    -fx-font-weight: bold;
+    -fx-text-fill: white;
+    -fx-background-color: red;
+}

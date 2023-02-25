@@ -1,0 +1,177 @@
+studt bitmasking (binary)
+hide ssid
+finding subsets using recursion
+desktop wallpapers download bfrom video
+pass by value and pass by reference
+
+
+
+
+time
+
+Linear search while				-	19.32	-	22.03
+Linear search for each			-	22.03 	-	22.52
+Linear search do while			-	22.52	-	23.17
+inear search recursion			-	00.16	-	03.08
+MIn for							-	12.30	-	.....
+Mn do  while					-	13.35	-	
+
+
+selection sort smallest
+selection sort smallest while
+
+
+
+
+
+maven
+
+mvn --version
+
+	locatin
+	home directory
+	java version & java runtime
+	
+	
+1. create branches in git local
+2. push the branches
+3. merge in github
+4. how t0 apply those github status to local repo
+
+merge karanna one git ekeda github ekeda?
+
+git eke branch ekaka idn github eke main ekata nathuwa wenama branch ekak auto create wena widiyata push karanna puluwnda?
+
+github eken pull karaddi local machine ekata, github eke thibuna main ekai branches okkomai download wenawada?
+
+download a branch in github to local git
+
+git eke branch ekak hadala github ekata pull krala, github eken merge kalata psse local eka update krnne khomada?  (branch ekak delete una eka pull krnne kohomada?)
+
+
+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
+
+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
+
+
+
+
+
+
+
+Student{id=1, name='Kasun', contactNumber='077-1234567'}
+
+
+
+
+what are local variables?
+only the local variables in the stack?
+
+only the methods create new frame?
+methods = executable context ?
+
+
+Exercise05 template is being initialized - 01
+Initializing Courses
+Course template is being initialized
+Course id: DEP, name: Direct Entry Program created!
+Course id: GDSE, name: Graduate Diploma in Software Engineering created!
+Exercise05 template is being initialized - 02
+DEP : Kasun
+CMJD : Kanishka
+GDSE : Nuwan
+
+9 > 17 > 
+
+
+x= 10
+y=7
+fgdfgdgfdghgh
+
+
+82
+146
+167
+198
+201
+223
+225
+279
+289
+297
+298
+302
+303
+319
+328
+352
+361
+384
+393
+407
+416
+430
+439
+453
+462
+476
+485
+508
+517
+535
+544
+
+GitHub
+	music player
+	movie player
+	student database with serialization
+
+
+
+.LayoutX in javaFX
+
+event style? (how to identify?)
+	event -> {}
+	(value, previus, current) -> {}
+	
+observableList .getItems cannt be looped and modified? why?
+
+TableView
+	only objects?
+	nly instance variables?   // arraylist's first item
+
+ArrayList<String> array1 = new ArrayList<>("What goes here?");
+
+
+
+
+
+
+
+
+Student validation with combo
+programming fundamentals
+student database
+student database2
+observable dynamic arrays
+linked lists
+dynamic arrays
+design patterns
+modal windows
+paint applyjavafx animations
+javafx canvas
+javafx fxml
+javafx basics3
+undecorated windows
+media player
+fx scenes excersice
+fx scenes
+second fx app
+hello java fx
+oop demos
+hello oop
+
+
+
+
+
