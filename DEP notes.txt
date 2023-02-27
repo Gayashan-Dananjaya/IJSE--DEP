@@ -49,10 +49,6 @@ download a branch in github to local git
 git eke branch ekak hadala github ekata pull krala, github eken merge kalata psse local eka update krnne khomada?  (branch ekak delete una eka pull krnne kohomada?)
 
 
-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
-
-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
-
 
 
 
