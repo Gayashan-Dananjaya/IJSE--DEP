@@ -1,7 +1,5 @@
 package lk.ijse.dep10.app.controller;
 
-import javafx.beans.binding.DoubleBinding;
-import javafx.beans.property.SimpleDoubleProperty;
 import javafx.concurrent.Task;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -9,53 +7,50 @@ import javafx.scene.control.Button;
 import javafx.scene.control.ProgressBar;
 import javafx.scene.control.TextField;
 import javafx.stage.DirectoryChooser;
-import javafx.stage.FileChooser;
 
 import javax.swing.*;
-import java.io.*;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.util.Arrays;
 
 public class MainSceneController {
 
-    @FXML
-    private Button btnCopy;
-
-    @FXML
-    private Button btnDelete;
-
-    @FXML
-    private Button btnFrom;
-
-    @FXML
-    private Button btnMove;
-
-    @FXML
-    private Button btnTo;
-
-    @FXML
-    private ProgressBar prg;
-
-    @FXML
-    private TextField txtFrom;
-
-    @FXML
-    private TextField txtTo;
     File fileFrom;
     File fileTo;
     double readSize = 0;
     double writeCount = 0;
     boolean moveRec = false;
+    @FXML
+    private Button btnCopy;
+    @FXML
+    private Button btnDelete;
+    @FXML
+    private Button btnFrom;
+    @FXML
+    private Button btnMove;
+    @FXML
+    private Button btnTo;
+    @FXML
+    private ProgressBar prg;
+    @FXML
+    private TextField txtFrom;
+    @FXML
+    private TextField txtTo;
 
     public void initialize() {
     }
+
     @FXML
     void btnFromOnAction(ActionEvent event) {
-//        JFileChooser chooser = new JFileChooser();
-//        chooser.setFileSelectionMode(JFileChooser.FILES_AND_DIRECTORIES);
-//        chooser.showOpenDialog(null);
-//        fileFrom = chooser.getSelectedFile();
+        JFileChooser chooser = new JFileChooser();
+        chooser.setFileSelectionMode(JFileChooser.FILES_AND_DIRECTORIES);
+        chooser.showOpenDialog(null);
+        fileFrom = chooser.getSelectedFile();
 
-        DirectoryChooser dirChooser = new DirectoryChooser();
-        fileFrom = dirChooser.showDialog(btnFrom.getScene().getWindow());
+//        DirectoryChooser dirChooser = new DirectoryChooser();
+//        fileFrom = dirChooser.showDialog(btnFrom.getScene().getWindow());
 
 //        FileChooser fileChooser = new FileChooser();
 //        fileFrom = fileChooser.showOpenDialog(btnFrom.getScene().getWindow());
@@ -81,6 +76,8 @@ public class MainSceneController {
 
     @FXML
     void btnCopyOnAction(ActionEvent event) {
+        moveRec = false;
+        writeCount = 0;
         if (fileFrom == null || fileTo == null) {
             return;
         } else if (fileFrom.isFile()) {
@@ -88,7 +85,7 @@ public class MainSceneController {
             readSize = fileFrom.length();
             copySingleFile(fileFrom, fileTo);
             System.out.println("Write completed");
-        } else if (fileFrom.isDirectory()){
+        } else if (fileFrom.isDirectory()) {
             getSize(fileFrom);
             File newFile = new File(fileTo, fileFrom.getName());
             newFile.mkdir();
@@ -97,30 +94,29 @@ public class MainSceneController {
         }
 
 
-
-
-
     }
 
     @FXML
     void btnMoveOnAction(ActionEvent event) {
         if (fileFrom == null || fileTo == null) {
             return;
-        } else if (fileFrom.isFile()) {
-            moveRec = false;
-            fileTo = new File(fileTo, fileFrom.getName());
-            readSize = fileFrom.length();
-            moveSingleFile(fileFrom, fileTo);
-            System.out.println("Move completed");
-        } else if (fileFrom.isDirectory()){
-            moveRec = true;
-            getSize(fileFrom);
-            File newFile = new File(fileTo, fileFrom.getName());
-            newFile.mkdir();
-            moveRecursion(fileFrom, newFile);
-//            fileFrom.delete();
-            System.out.println("Move completed");
         }
+//        else if (fileFrom.isFile()) {
+//            moveRec = false;
+//            fileTo = new File(fileTo, fileFrom.getName());
+//            readSize = fileFrom.length();
+//            moveSingleFile(fileFrom, fileTo);
+//            System.out.println("Move completed");
+//        } else if (fileFrom.isDirectory()) {
+//            moveRec = true;
+//            getSize(fileFrom);
+//            File newFile = new File(fileTo, fileFrom.getName());
+//            newFile.mkdir();
+//            moveRecursion(fileFrom, newFile);
+////            fileFrom.delete();
+//            System.out.println("Move completed");
+//        }
+        fileFrom.renameTo(new File(fileTo, fileFrom.getName()));
     }
 
     @FXML
@@ -143,7 +139,7 @@ public class MainSceneController {
             protected Void call() throws Exception {
                 try {
                     FileInputStream fis = new FileInputStream(start);
-                    FileOutputStream fos = new FileOutputStream(destination,true);
+                    FileOutputStream fos = new FileOutputStream(destination, true);
 
                     while (true) {
                         byte[] bytes = new byte[1024];
@@ -153,9 +149,13 @@ public class MainSceneController {
                         if (read == -1) {
                             break;
                         } else {
-                            fos.write(bytes,0,read);
+                            fos.write(bytes, 0, read);
                             writeCount += read;
-                            updateProgress(writeCount/readSize,2);
+                            double percentage = writeCount / readSize;
+//                            System.out.println(writeCount);
+//                            System.out.println(readSize);
+//                            System.out.println("--------------");
+                            updateProgress(percentage, 1.0);
 //                            System.out.println(writeCount/readSize);
                         }
                     }
@@ -169,8 +169,15 @@ public class MainSceneController {
             }
         };
 
+        task.setOnSucceeded(workerStateEvent -> {
+//            prg.progressProperty().unbind();
+//            prg.setProgress(writeCount/readSize);
+            System.out.println(writeCount*100/readSize);
+            System.out.println("--------------");
+        });
+
         new Thread(task).start();
-//        prg.progressProperty().unbind();
+        prg.progressProperty().unbind();
         prg.progressProperty().bind(task.progressProperty());
     }
 
@@ -219,7 +226,7 @@ public class MainSceneController {
             protected Void call() throws Exception {
                 try {
                     FileInputStream fis = new FileInputStream(start);
-                    FileOutputStream fos = new FileOutputStream(destination,true);
+                    FileOutputStream fos = new FileOutputStream(destination, true);
 
                     while (true) {
                         byte[] bytes = new byte[1024];
@@ -229,9 +236,9 @@ public class MainSceneController {
                         if (read == -1) {
                             break;
                         } else {
-                            fos.write(bytes,0,read);
+                            fos.write(bytes, 0, read);
                             writeCount += read;
-                            updateProgress(writeCount/readSize,2);
+                            updateProgress(writeCount / readSize, 2);
 //                            System.out.println(writeCount/readSize);
                         }
                     }
@@ -267,9 +274,29 @@ public class MainSceneController {
                 File newFile = new File(copyTo, file.getName());
                 newFile.mkdir();
                 moveRecursion(file, newFile);
-//                file.delete();
+                file.delete();
             }
         }
+    }
+
+    public File[] sort(File[] input) {
+        File[] newFileArray = new File[input.length];
+        int i = 0;
+
+        for (File file : input) {
+            if (file.isDirectory()) {
+                newFileArray[i] = file;
+                i++;
+            }
+        }
+
+        for (File file : input) {
+            if (file.isFile()) {
+                newFileArray[i] = file;
+                i++;
+            }
+        }
+        return newFileArray;
     }
 
 }

@@ -6,7 +6,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="210.0" prefWidth="482.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.dep10.serialization.controller.MainViewController">
+<AnchorPane prefHeight="400.0" prefWidth="403.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.dep10.serialization.controller.MainViewController">
    <children>
       <Label alignment="CENTER" maxWidth="1.7976931348623157E308" text="Java Serialization In Action" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="30.0">
          <font>
@@ -15,14 +15,34 @@
       </Label>
       <VBox alignment="CENTER" layoutX="250.0" layoutY="75.0" maxWidth="1.7976931348623157E308" spacing="20.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="100.0">
          <children>
-            <Button fx:id="btnHelloSerialization" mnemonicParsing="false" onAction="#btnHelloSerializationOnAction" prefWidth="200.0" style="-fx-background-radius: 20px;" text="Hello Serialization">
+            <Button fx:id="btnHelloSerialization" mnemonicParsing="false" onAction="#btnHelloSerializationOnAction" prefWidth="300.0" style="-fx-background-radius: 20px;" text="Hello Serialization">
                <font>
                   <Font size="15.0" />
                </font></Button>
-            <Button fx:id="btnManageStudents" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#btnManageStudentsOnAction" prefWidth="200.0" style="-fx-background-radius: 20px;" text="Manage Students">
+            <Button fx:id="btnManageStudents" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#btnManageStudentsOnAction" prefWidth="300.0" style="-fx-background-radius: 20px;" text="Manage Students">
                <font>
                   <Font size="15.0" />
                </font></Button>
+            <Button fx:id="btnSerializationWithInheritance" layoutX="151.0" layoutY="59.0" mnemonicParsing="false" onAction="#btnSerializationWithInheritanceOnAction" prefWidth="300.0" style="-fx-background-radius: 20px;" text="Serialization with Inheritance">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Button>
+            <Button fx:id="btnSerializationWithInheritance2" layoutX="126.0" layoutY="108.0" mnemonicParsing="false" onAction="#btnSerializationWithInheritance2OnAction" prefWidth="300.0" style="-fx-background-radius: 20px;" text="Serialization with Inheritance - II">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Button>
+            <Button fx:id="btnTransient" layoutX="101.0" layoutY="157.0" mnemonicParsing="false" onAction="#btnTransientOnAction" prefWidth="300.0" style="-fx-background-radius: 20px;" text="Transient Keyword">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Button>
+            <Button fx:id="btnSerialVersionUID" layoutX="62.0" layoutY="206.0" mnemonicParsing="false" onAction="#btnSerialVersionUIDOnAction" prefWidth="300.0" style="-fx-background-radius: 20px;" text="Serial Version UID">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Button>
          </children>
       </VBox>
    </children>
