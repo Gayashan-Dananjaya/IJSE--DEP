@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane prefHeight="641.0" prefWidth="1040.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.dep10.client.controller.ChatSceneController">
+   <children>
+      <ListView fx:id="lstUsers" layoutX="840.0" layoutY="22.0" prefHeight="639.0" prefWidth="223.0" />
+      <TextField fx:id="txtMessage" layoutX="25.0" layoutY="595.0" onAction="#txtMessageOnAction" prefHeight="66.0" prefWidth="804.0" />
+      <TextArea fx:id="txtChatHistory" layoutX="25.0" layoutY="23.0" prefHeight="560.0" prefWidth="804.0" />
+   </children>
+   <padding>
+      <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+   </padding>
+</AnchorPane>
