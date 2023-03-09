@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="578.0" prefWidth="709.0" stylesheets="@../style/EditorViewStyles.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.dep10.regex.controller.EditorViewController">
+   <children>
+      <HBox alignment="CENTER_LEFT" spacing="20.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="20.0">
+         <children>
+            <TextField fx:id="txtFind" promptText="Find" HBox.hgrow="ALWAYS" />
+            <Button fx:id="btnDown" mnemonicParsing="false" onAction="#btnDownOnAction" prefWidth="110.0" text="DOWN" />
+            <Button fx:id="btnUp" layoutX="165.0" layoutY="10.0" mnemonicParsing="false" onAction="#btnUpOnAction" prefWidth="110.0" text="UP" />
+            <CheckBox fx:id="chkMatchCase" mnemonicParsing="false" onAction="#chkMatchCaseOnAction" prefWidth="110.0" selected="true" text="Match Case" />
+         </children>
+      </HBox>
+      <HBox alignment="CENTER_LEFT" layoutX="30.0" layoutY="30.0" spacing="20.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="60.0">
+         <children>
+            <TextField fx:id="txtReplace" promptText="Replace Text" HBox.hgrow="ALWAYS" />
+            <Button fx:id="btnReplace" mnemonicParsing="false" onAction="#btnReplaceOnAction" prefWidth="110.0" text="REPLACE" />
+            <Button fx:id="btnReplaceAll" layoutX="165.0" layoutY="10.0" mnemonicParsing="false" onAction="#btnReplaceAllOnAction" prefWidth="110.0" text="REPLACE ALL" />
+            <Label fx:id="lblResult" alignment="CENTER" contentDisplay="CENTER" prefWidth="110.0" text="0 Results" textFill="#461ebc">
+               <font>
+                  <Font name="System Bold" size="13.0" />
+               </font>
+            </Label>
+         </children>
+      </HBox>
+      <TextArea fx:id="txtEditor" prefHeight="200.0" prefWidth="200.0" text="A regular expression (shortened as regex or regexp;[1] sometimes referred to as rational expression[2][3]) is a sequence of characters that specifies a match pattern in text. Usually such patterns are used by string-searching algorithms for &quot;find&quot; or &quot;find and replace&quot; operations on strings, or for input validation. Regular expression techniques are developed in theoretical computer science and formal language theory.&#10;&#10;The concept of regular expressions began in the 1950s, when the American mathematician Stephen Cole Kleene formalized the concept of a regular language. They came into common use with Unix text-processing utilities. Different syntaxes for writing regular expressions have existed since the 1980s, one being the POSIX standard and another, widely used, being the Perl syntax.&#10;&#10;Regular expressions are used in search engines, in search and replace dialogs of word processors and text editors, in text processing utilities such as sed and AWK, and in lexical analysis. Regular expressions are supported in many programming languages." wrapText="true" AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="100.0">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </TextArea>
+   </children>
+</AnchorPane>
