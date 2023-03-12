@@ -27,32 +27,34 @@ public class AppInitializer {
             sendChatHistory(user);
             broadcastLoggedUsers();
 
-            new Thread(() -> {
+            new Thread(new Runnable() {
+                @Override
+                public void run() {
+                    try {
+                        ObjectInputStream ois = user.getObjectInputStream();
 
-                try {
-                    ObjectInputStream ois = user.getObjectInputStream();
-
-                    while (true) {
-                        Dep10Message msg = (Dep10Message) ois.readObject();
-                        if (msg.getHeader() == Dep10Headers.MSG) {
-                            chatHistory += String.format("%s: %s \n", user.getRemoteIpAddress(), msg.getBody());
-                            broadcastChatHistory();
-                        } else if (msg.getHeader() == Dep10Headers.EXIT) {
-                            userList.remove(user);
-                            if (user.getLocalSocket().isConnected()) user.getLocalSocket().close();
-                            broadcastLoggedUsers();
+                        while (true) {
+                            Dep10Message msg = (Dep10Message) ois.readObject();
+                            if (msg.getHeader() == Dep10Headers.MSG) {
+                                chatHistory += String.format("%s: %s \n", user.getRemoteIpAddress(), msg.getBody());
+                                broadcastChatHistory();
+                            } else if (msg.getHeader() == Dep10Headers.EXIT) {
+                                userList.remove(user);
+                                if (user.getLocalSocket().isConnected()) user.getLocalSocket().close();
+                                broadcastLoggedUsers();
+                                return;
+                            }
+                        }
+                    } catch (Exception e) {
+                        if (localSocket.isClosed()) {
+                            if (userList.contains(user)) {
+                                userList.remove(user);
+                                broadcastLoggedUsers();
+                            }
                             return;
                         }
+                        e.printStackTrace();
                     }
-                } catch (Exception e) {
-                    if (localSocket.isClosed()) {
-                        if (userList.contains(user)) {
-                            userList.remove(user);
-                            broadcastLoggedUsers();
-                        }
-                        return;
-                    }
-                    e.printStackTrace();
                 }
             }).start();
         }
