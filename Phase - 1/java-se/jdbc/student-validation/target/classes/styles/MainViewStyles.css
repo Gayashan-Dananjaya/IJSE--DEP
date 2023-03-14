@@ -1,0 +1,32 @@
+.text-field {
+    -fx-background-radius: 20px;
+}
+
+.button {
+    -fx-background-radius: 20px;
+    -fx-font-weight: bold;
+    -fx-text-fill: white;
+}
+
+.combo-box {
+    -fx-background-radius: 20px;
+}
+
+#dtpDateOfBirth {
+    -fx-background-radius: 20px;
+}
+
+#btnNewStudent {
+    /*-fx-background-color: rgb(24, 148, 238);*/
+    -fx-background-color: blue;
+}
+
+#btnSave {
+    /*-fx-background-color: #6df36d;*/
+    -fx-background-color: green;
+}
+
+#btnDelete {
+    /*-fx-background-color: #f37373;*/
+    -fx-background-color: red;
+}
